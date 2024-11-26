@@ -1,4 +1,4 @@
-**BotForge: Multi-Bot Management Framework**
+# **BotForge: Multi-Bot Management Framework**
 
 **BotForge** is a modular framework for building and managing multiple Telegram bots in a single repository. It promotes scalability, code reusability, and consistency by leveraging shared libraries, centralized configurations, and environment-specific setups.
 
