@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int          @id @default(autoincrement())
+  tgId        Int          @unique
+  name        String?
+  accessRight AccessRight?
+  catalogues  Catalogue[]
+}
+
+model AccessRight {
+  id             Int     @id @default(autoincrement())
+  user           User    @relation(fields: [userTgId], references: [tgId], onDelete: Cascade, onUpdate: Cascade)
+  userTgId       Int     @unique
+  isCommanderBot Boolean @default(false)
+  isBacklog      Boolean @default(false)
+  isOpcValiSu    Boolean @default(false)
+}
+
+model Catalogue {
+  id              Int              @id @default(autoincrement())
+  name            String
+  translitName    String
+  access          Boolean          @default(false)
+  user            User             @relation(fields: [userTgId], references: [tgId])
+  userTgId        Int
+  catalogueValues CatalogueValue[]
+
+  @@unique([userTgId, name, translitName])
+}
+
+model CatalogueValue {
+  id          Int       @id @default(autoincrement())
+  value       String
+  catalogueId Int
+  catalogue   Catalogue @relation(fields: [catalogueId], references: [id])
+
+  @@unique([catalogueId, value])
+}
+
+model Backlog {
+  id          Int      @id @default(autoincrement())
+  name        String
+  text        String
+  creatorTgId Int
+  createdAt   DateTime @default(now())
+}
+
+model DiscountCardNumber{
+  id          Int      @id @default(autoincrement())
+  discountCardNumberLine String
+  discountCardNumberMin Int
+  discountCardNumberMax Int
+}

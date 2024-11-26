@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "npx nodemon",
+    "start": "npx ts-node ./src/bot.ts"
+  },
+  "devDependencies": {
+    "@grammyjs/conversations": "^1.2.0",
+    "@types/node": "^20.12.8",
+    "prettier": "3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.15.0",
+    "cyrillic-to-translit-js": "^3.2.1",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.22.4",
+    "moment": "^2.30.1",
+    "mongodb": "^6.5.0",
+    "mysql2": "^3.9.7",
+    "prisma": "^5.15.0"
+  }
+}

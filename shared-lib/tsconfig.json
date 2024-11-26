@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "allowJs": true,
+    "outDir": "build",
+    "rootDir": ".",
+    "strict": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  }
+}
