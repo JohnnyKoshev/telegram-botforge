@@ -113,8 +113,8 @@ To add a new bot to the repository:
 2. **Implement Bot Logic:**
    Add all files, commands, and services required for the bot within the directory.
 
-3. **Create a `.env` File:**
-   Use the `commander-bot/.env_commanderBot` file as a reference to define environment variables for your new bot. For example:
+3. **Create a `.env_newBot` File:**
+   Use the `commander-bot/.env_commanderBot.example` file as a reference to define environment variables for your new bot. For example:
 
    **`.env_newBot` (Example):**
    ```plaintext
@@ -137,7 +137,7 @@ To add a new bot to the repository:
    ```
 
 4. **Generate Prisma Client:**
-   If your new bot interacts with a database, generate the Prisma client:
+   If your new bot interacts with a database through Prisma, generate the Prisma client:
    ```bash
    npx prisma generate
    ```
